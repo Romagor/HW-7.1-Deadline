@@ -21,7 +21,7 @@ public class LoginPage {
         return new VerificationPage();
     }
 
-    public void cleanFields(){
+    public void cleanFields() {
         login.doubleClick().sendKeys(Keys.BACK_SPACE);
         password.doubleClick().sendKeys(Keys.BACK_SPACE);
     }

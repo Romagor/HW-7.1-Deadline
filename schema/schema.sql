@@ -36,3 +36,23 @@ CREATE TABLE card_transactions
     amount_in_kopecks INT         NOT NULL,
     created           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+drop table IF EXISTS auth_codes;
+create TABLE auth_codes
+(
+    id      CHAR(36) PRIMARY KEY,
+    user_id CHAR(36)   NOT NULL,
+    code    VARCHAR(6) NOT NULL,
+    created TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+drop table IF EXISTS card_transactions;
+create TABLE card_transactions
+(
+    id                CHAR(36) PRIMARY KEY,
+    source            VARCHAR(19) NOT NULL,
+    target            VARCHAR(19) NOT NULL,
+    amount_in_kopecks INT         NOT NULL,
+    created           TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

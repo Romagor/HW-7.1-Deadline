@@ -16,9 +16,8 @@ public class VerificationPage {
     }
 
     public void getError() {
-        error
-                .shouldBe(visible)
-                .shouldHave(text("Неверно указан код! Попробуйте ещё раз."));
+        error.shouldBe(visible);
+        error.shouldHave(text("Неверно указан код! Попробуйте ещё раз."));
     }
 
     public void verify(String verificationCode) {
